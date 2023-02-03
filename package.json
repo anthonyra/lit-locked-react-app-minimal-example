@@ -9,8 +9,10 @@
     "heroku-postbuild": "./build.sh"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
-    "lit-js-sdk": "^1.1.74"
+    "cookie-parser": "^1.4.6",
+    "lit-js-sdk": "^1.2.59",
+    "path": "^0.12.7",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   }
 }

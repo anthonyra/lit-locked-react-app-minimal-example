@@ -6,22 +6,6 @@
       src="https://jscdn.litgateway.com/index.web.js"
     ></script>
     <script>
-      async function mintNft() {
-        document.getElementById("mintingStatus").innerText =
-          "Minting, please wait for the tx to confirm...";
-
-        window.chain = document.getElementById("selectedChain").value;
-
-        const { txHash, tokenId, tokenAddress, mintingAddress, authSig } =
-          await LitJsSdk.mintLIT({ chain: window.chain, quantity: 1 });
-        window.tokenId = tokenId;
-        window.tokenAddress = tokenAddress;
-        window.authSig = authSig;
-
-        document.getElementById("mintingStatus").innerText =
-          "Minted!  Tx hash is " + txHash;
-      }
-
       async function provisionAccess() {
         document.getElementById("provisioningStatus").innerText =
           "Provisioning, please wait...";
@@ -86,35 +70,20 @@
   <body>
     <h1>LIT Protocol Minimal JWT Example</h1>
 
-    <h2>Step 1: Mint an NFT</h2>
-    Chain to mint on:
-    <select id="selectedChain">
-      <option value="fantom" selected>Fantom</option>
-      <option value="ethereum">Ethereum</option>
-      <option value="polygon">Polygon</option>
-      <option value="xdai">xDai</option>
-    </select>
-    <br />
-    <br />
-    <button onclick="mintNft()">Mint NFT</button>
-    <br />
-    <br />
-    <div id="mintingStatus"></div>
-
-    <h2>Step 2: Provision access to a resource</h2>
+    <h2>Step 1: Provision access to a resource</h2>
     <button onclick="provisionAccess()">Provision access</button>
     <br />
     <br />
     <div id="provisioningStatus"></div>
 
-    <h2>Step 3: Request a JWT to authenticate the user</h2>
+    <h2>Step 2: Request a JWT to authenticate the user</h2>
     <button onclick="requestJwt()">Request JWT</button>
     <br />
     <br />
     <div id="requestingStatus"></div>
 
     <h2>
-      Step 4: Visit the protected server and include the JWT as a url parameter
+      Step 3: Visit the protected server and include the JWT as a url parameter
     </h2>
     <button onclick="visitProtectedServer()">Visit the protected server</button>
     <br />
